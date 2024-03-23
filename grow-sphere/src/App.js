@@ -21,6 +21,7 @@ function App() {
         // </Router>
         <div>
             <NavBar/>
+            <Home/>
         </div>
     );
 }
