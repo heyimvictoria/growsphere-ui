@@ -19,9 +19,15 @@ function App() {
         //         {/* Define more routes as needed */}
         //     </Routes>
         // </Router>
-        <div>
-            <NavBar/>
-            <Home/>
+        <div className='App'>
+            <Router>
+                <NavBar/>
+                <Routes>
+                    <Route exact path='/' element={<Home />}/>
+                    <Route exact path='/register' element={<Register />}/>
+                </Routes>
+
+            </Router>
         </div>
     );
 }
