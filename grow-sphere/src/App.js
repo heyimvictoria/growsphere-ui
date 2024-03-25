@@ -7,6 +7,8 @@ import Dashboard from './components/user/Dashboard';
 import Home from './components/Home';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import ProfileEdit from './components/user/ProfileEdit';
+import ViewUser from './components/user/ViewUser';
 
 function App() {
     return (
@@ -25,6 +27,8 @@ function App() {
                 <Routes>
                     <Route exact path='/' element={<Home />}/>
                     <Route exact path='/register' element={<Register />}/>
+                    <Route exact path='/editUser/:id' element={<ProfileEdit />}/>
+                    <Route exact path='/viewUser/:id' element={<ViewUser />}/>
                 </Routes>
 
             </Router>
