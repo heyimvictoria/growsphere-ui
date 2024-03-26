@@ -1,22 +1,26 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom'; // Make sure to import Routes and Route
 import NavBar from './components/NavBar';
+import Home from './components/Home';
 import Login from './components/user/Login';
 import Register from './components/user/Register';
 import Dashboard from './components/user/Dashboard';
-import Home from './components/Home';
+import About from './components/About'; // Assume you have an About component
+import './index.css';
 
 function App() {
     return (
-        <Router>
+        <>
+            <NavBar />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                {/* Define more routes as needed */}
+                <Route path="/about" element={<About />} />
+                {/* Add more routes as needed */}
             </Routes>
-        </Router>
+        </>
     );
 }
 
