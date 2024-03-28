@@ -7,6 +7,7 @@ import Register from './components/user/Register';
 import Dashboard from './components/user/Dashboard';
 import About from './components/About'; // Assume you have an About component
 import './index.css';
+import WeatherComponent from './components/user/Weather';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/weather" element={<WeatherComponent />} />
                 {/* Add more routes as needed */}
             </Routes>
         </>
