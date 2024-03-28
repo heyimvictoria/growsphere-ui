@@ -3,16 +3,21 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar() {
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid">
-                    <Link className="navbar-brand" to={"/"}>Navbar</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <Link className='btn btn-outline-dark' to="/register">Register</Link>
-                </div>
-            </nav>
-        </div>
+        <nav>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/register">Register</Link></li>
+                <li><Link to="/dashboard">Dashboard</Link></li>
+                <li><Link to="/my-plants">My Plants</Link></li>
+                <li><Link to="/add-plant">Add Plant</Link></li>
+                <li><Link to="/weather">Weather</Link></li>
+                <li><Link to="/guides">Plant Care Guides</Link></li>
+                <li><Link to="/community">Community</Link></li>
+                <li><Link to="/profile">Profile</Link></li>
+                <li><Link to="/logout">Logout</Link></li>
+                <li><Link to="/about">About</Link></li>
+            </ul>
+        </nav>
     );
 }

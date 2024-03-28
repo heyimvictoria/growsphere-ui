@@ -9,6 +9,10 @@ import Home from './components/Home';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import ProfileEdit from './components/user/ProfileEdit';
 import ViewUser from './components/user/ViewUser';
+import MyPlants from './components/user/MyPlants';
+import EditPlant from './components/user/EditPlant';
+import ViewPlant from './components/user/ViewPlant';
+import AddPlant from './components/user/AddPlant';
 
 function App() {
     return (
@@ -26,6 +30,10 @@ function App() {
                 <NavBar/>
                 <Routes>
                     <Route exact path='/' element={<Home />}/>
+                    <Route exact path='/my-plants' element={<MyPlants />}/>
+                    <Route exact path='/editPlant/:id' element={<EditPlant />}/>
+                    <Route exact path='/viewPlant/:id' element={<ViewPlant />}/>
+                    <Route exact path='/add-plant' element={<AddPlant />}/>
                     <Route exact path='/register' element={<Register />}/>
                     <Route exact path='/editUser/:id' element={<ProfileEdit />}/>
                     <Route exact path='/viewUser/:id' element={<ViewUser />}/>
