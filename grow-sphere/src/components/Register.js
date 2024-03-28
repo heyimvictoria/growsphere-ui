@@ -1,25 +1,41 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
+import { register, login } from '../services/authService';
 
 const Register = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
-        confirmPassword: '', // Optional: for confirming password
+        confirmPassword: '',
     });
+    const navigate = useNavigate(); // Initialize the useNavigate hook
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Here, implement your registration logic, e.g., call to an API
-        console.log('Registration data:', formData);
+        if (formData.password !== formData.confirmPassword) {
+            console.error("Passwords do not match.");
+            return;
+        }
+
+        try {
+            const { email, password } = formData;
+            await register({ email, password });
+            // Assuming your login function only needs email and password
+            const loginResponse = await login({ email, password });
+            console.log('Login successful:', loginResponse);
+            // Redirect to dashboard upon successful login
+            navigate('/dashboard');
+        } catch (error) {
+            console.error('Registration or login failed:', error);
+        }
     };
 
     return (
-        <div>
+        <div className="userform-container">
             <h2>Register</h2>
             <form onSubmit={handleSubmit}>
                 <label>
@@ -34,7 +50,7 @@ const Register = () => {
                     Confirm Password:
                     <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
                 </label>
-                <button type="submit">Register</button>
+                <button type="submit" className="register-button">Register</button>
             </form>
         </div>
     );
