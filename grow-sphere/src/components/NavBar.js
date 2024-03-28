@@ -15,6 +15,7 @@ export default function NavBar() {
                 <li><Link to="/community">Community</Link></li>
                 <li><Link to="/profile">Profile</Link></li>
                 <li><Link to="/logout">Logout</Link></li>
+                <li><Link to="/contact">Contact Us</Link></li>
                 <li><Link to="/about">About</Link></li>
             </ul>
         </nav>
