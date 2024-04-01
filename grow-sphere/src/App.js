@@ -9,6 +9,7 @@ import Home from './components/Home';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import ProfileEdit from './components/user/ProfileEdit';
 import ViewUser from './components/user/ViewUser';
+import {ContactForm}from './components/ContactForm';
 
 function App() {
     return (
@@ -29,6 +30,7 @@ function App() {
                     <Route exact path='/register' element={<Register />}/>
                     <Route exact path='/editUser/:id' element={<ProfileEdit />}/>
                     <Route exact path='/viewUser/:id' element={<ViewUser />}/>
+                    <Route exact path='/contact' element={<ContactForm />}/>
                 </Routes>
 
             </Router>
