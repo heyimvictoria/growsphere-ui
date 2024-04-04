@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
@@ -57,3 +58,12 @@ export default function Home() {
     </div>
   )
 }
+=======
+import React from 'react';
+
+const Home = () => {
+    return <h1>Welcome to GrowSphere</h1>;
+};
+
+export default Home;
+>>>>>>> 8fd289fdb4a150bc6ee45b928198a45b3c7b2931
