@@ -1,3 +1,4 @@
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import NavBar from './components/NavBar';
@@ -7,15 +8,13 @@ import Register from './components/Register';
 import Dashboard from './components/user/Dashboard';
 import About from './components/About';
 import './index.css';
-import {AuthProvider} from "./context/AuthContext";
+import {AuthProvider} from "./context/AuthContext";;
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
         <AuthProvider>
             <Router>
-            <NavBar />
                 <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
