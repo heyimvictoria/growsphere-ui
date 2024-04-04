@@ -1,9 +1,10 @@
 import React from 'react';
-import ContactForm from './ContactForm';
+import ContactFormRestAPI from './ContactFormRestAPI'
 
 const Home = () => {
     return <div><h1>Welcome to GrowSphere</h1>
-    <ContactForm></ContactForm>
+    <h2>Contact Support</h2>
+    <ContactFormRestAPI></ContactFormRestAPI>
 
     </div>
     ;
