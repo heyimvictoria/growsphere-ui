@@ -8,6 +8,8 @@ import Dashboard from './components/user/Dashboard';
 import About from './components/About'; // Assume you have an About component
 import './index.css';
 import WeatherComponent from './components/user/Weather';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
     return (
