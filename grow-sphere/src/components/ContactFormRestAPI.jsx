@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 const ContactFormRestAPI =  () => {
 
-const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+const [conName, setConName] = useState('');
+  const [conEmail, setConEmail] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
@@ -19,18 +19,22 @@ const [name, setName] = useState('');
         template_id: templateId,
         user_id: publicKey,
         template_params: {
-            name: name,
-            email: email,
+            name: conName,
+            email: conEmail,
             to_name: 'GrowSphere Support',
             message: message,
         }
       };
 
     try {
-      const res = await axios.post("https://api.emailjs.com/v1.0/email/send", inquiryData);
+      const res = await axios.post("https://api.emailjs.com/v1.0/email/send-form", inquiryData,{
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
       console.log(res.inquiryData);
-      setName('');
-      setEmail('');
+      setConName('');
+      setConEmail('');
       setMessage('');
     } catch (error) {
       console.error(error);
@@ -44,15 +48,15 @@ const [name, setName] = useState('');
         <input 
         type="text" 
         placeholder="Your Name" 
-        value={name}
-        onChange={(e) => setName(e.target.value)}/>
+        value={conName}
+        onChange={(e) => setConName(e.target.value)}/>
   
         <label>Email</label>
         <input 
         type="text" 
         placeholder="Your Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)} />
+        value={conEmail}
+        onChange={(e) => setConEmail(e.target.value)} />
   
         <label>Message</label>
         
