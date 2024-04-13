@@ -1,3 +1,6 @@
+// grow-sphere\src\components\NavBar.js
+// need to adjust NavBar for auth or not
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 

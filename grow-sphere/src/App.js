@@ -1,26 +1,32 @@
+// grow-sphere\src\App.js
+// noinspection JSCheckFunctionSignatures(?)
+
 import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // Make sure to import Routes and Route
-import NavBar from './components/NavBar';
-import Home from './components/Home';
-import Login from './components/user/Login';
-import Register from './components/user/Register';
-import Dashboard from './components/user/Dashboard';
-import About from './components/About'; // Assume you have an About component
+import { Routes, Route, Link } from 'react-router-dom';
+import HomeComponent from './components/Home';
+import AboutComponent from './components/About';
+import LoginComponent from './components/Login';
+import RegisterComponent from './components/Register';
 import './index.css';
 
 function App() {
     return (
-        <>
-            <NavBar />
+        <div className="App">
+            <nav>
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/register">Register</Link></li>
+                </ul>
+            </nav>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/about" element={<About />} />
-                {/* Add more routes as needed */}
+                <Route path="/" element={<HomeComponent />} />
+                <Route path="/about" element={<AboutComponent />} />
+                <Route path="/login" element={<LoginComponent />} />
+                <Route path="/register" element={<RegisterComponent />} />
             </Routes>
-        </>
+        </div>
     );
 }
 

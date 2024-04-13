@@ -1,29 +1,40 @@
-import React, { createContext, useContext, useState } from 'react';
+// grow-sphere\src\context\AuthContext.js
+
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import AuthService from '../service/AuthService';
 
 const AuthContext = createContext();
 
-export const useAuth = () => useContext(AuthContext);
-
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState(null);
 
-    // Simulate a login function
-    const login = (userData) => {
-        setUser(userData);
-        // Here, userData would typically include information obtained from your backend upon successful authentication
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            setCurrentUser(user);
+        }
+    }, []);
+
+    const login = async (username, password) => {
+        const data = await AuthService.login(username, password);
+        setCurrentUser(data);
+        localStorage.setItem('user', JSON.stringify(data));
+        return data;
     };
 
-    // Simulate a logout function
     const logout = () => {
-        setUser(null);
+        AuthService.logout();
+        setCurrentUser(null);
+        localStorage.removeItem('user');
     };
 
     const value = {
-        user,
-        isAuthenticated: !!user,
+        currentUser,
         login,
         logout
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
+
+export const useAuth = () => useContext(AuthContext);
