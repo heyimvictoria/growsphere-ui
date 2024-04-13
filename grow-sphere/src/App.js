@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // grow-sphere\src\App.js
 // noinspection JSCheckFunctionSignatures(?)
 
@@ -7,10 +8,16 @@ import HomeComponent from './components/Home';
 import AboutComponent from './components/About';
 import LoginComponent from './components/Login';
 import RegisterComponent from './components/Register';
+=======
+import Register from "./components/Register";
+
+>>>>>>> db3659be24668061577ead93cadaf627c3977cc7
 import './index.css';
 
 function App() {
+
     return (
+<<<<<<< HEAD
         <div className="App">
             <nav>
                 <ul>
@@ -27,6 +34,11 @@ function App() {
                 <Route path="/register" element={<RegisterComponent />} />
             </Routes>
         </div>
+=======
+        <main className="App">
+            <Register/>
+        </main>
+>>>>>>> db3659be24668061577ead93cadaf627c3977cc7
     );
 }
 
