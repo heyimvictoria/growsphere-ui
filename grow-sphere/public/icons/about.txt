@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Comforter
+- Font Author: Copyright 2015 The Comforter Project Authors (https://github.com/googlefonts/comforter)
+- Font Source: https://fonts.gstatic.com/s/comforter/v7/H4clBXOCl8nQnlaql3Qa6JG8iqeuag.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
