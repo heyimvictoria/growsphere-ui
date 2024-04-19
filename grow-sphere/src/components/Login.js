@@ -103,7 +103,8 @@ class Login extends Component {
         return (
             <div className="col-md-12">
                 <div className="card card-container">
-
+                    <h3 className="text-center">Log In</h3>
+                    <hr />
                     <Form
                         onSubmit={this.handleLogin}
                         ref={c => {
@@ -149,7 +150,7 @@ class Login extends Component {
                         {this.state.message && (
                             <div className="form-group">
                                 <div className="alert alert-danger" role="alert">
-                                    {this.state.message} // Display any login error messages here.
+                                    {this.state.message}
                                 </div>
                             </div>
                         )}

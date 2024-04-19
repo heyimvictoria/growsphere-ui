@@ -1,0 +1,136 @@
+// Import Bootstrap's functions, variables, and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Your custom styles and overrides
+body {
+  color: black;
+  font-family: $font-family-base;
+  background: linear-gradient(to right, #04AA6D, #90fdc6);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.custom-navbar {
+  background-color: #000; // Using a Bootstrap color variable
+  color: $white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+// Media query using Bootstrap's breakpoint variable
+@media (max-width: map-get($grid-breakpoints, lg)) {
+  .navbar-nav {
+    background-color: $gray-800; // Darker for mobile nav
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 2rem;
+}
+
+.userform-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-container.card {
+  max-width: 350px;
+  padding: 40px 40px;
+  background-color: $black;
+  color: $white;
+  margin: 2rem auto;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+}
+
+.error {
+  color: $danger;
+  padding: 0.5rem;
+}
+
+// Profile Page Specific Styles
+.profile-page {
+  .profile-card {
+    background-color: $white;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: $border-radius;
+    box-shadow: 0 0.5rem 1rem rgba($black, .15);
+
+    .profile-header {
+      margin-bottom: 1rem;
+      font-size: 1.5rem; // Larger text for the header
+    }
+
+    .profile-details {
+      text-align: left;
+      line-height: 1.6;
+
+      strong {
+        color: $black; // Light color for strong tags
+      }
+    }
+
+    ul {
+      padding-left: 20px;
+      list-style-type: none; // No bullets for a cleaner look
+
+      li {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}
+
+// Specific styles for the About page card
+.about-page {
+  .card {
+    background-color: $white;
+    margin-top: 3rem;
+    padding: 2rem;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 8px rgba($black, .1);
+
+    .card-title {
+      color: $primary; // Use Bootstrap's primary color
+    }
+
+    h2 {
+      color: $dark;
+      padding-top: 2rem;
+    }
+
+    p, ul {
+      color: $gray-700; // Slightly softer than pure black
+      line-height: 1.7;
+    }
+
+    ul {
+      padding-left: 1rem;
+    }
+  }
+}
