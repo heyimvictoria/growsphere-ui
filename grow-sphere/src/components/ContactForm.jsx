@@ -46,11 +46,12 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} className='contactForm'>
       <label>Name</label>
-      <inputd
+      <input
       type="text"
       placeholder="Your Name"
       value={name}
       onChange={(e) => setName(e.target.value)}/>
+      
 
 
       <label>Email</label>
