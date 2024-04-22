@@ -17,34 +17,6 @@ body {
   min-height: 100vh;
 }
 
-/* Style for the navigation bar */
-nav {
-  background-color: #212121; /* Dark background for the nav bar */
-  color: #fff; /* White text color */
-  padding: 1rem; /* Some padding around nav elements */
-}
-
-nav ul {
-  list-style-type: none; /* Remove bullet points */
-  display: flex; /* Display nav items in a row */
-  justify-content: center; /* Center nav items horizontally */
-}
-
-nav ul li {
-  margin: 0 1rem; /* Space out nav items */
-}
-
-nav ul li a {
-  color: #fff; /* White text color for links */
-  text-decoration: none; /* Remove underline from links */
-  font-weight: bold; /* Make font a bit thicker */
-}
-
-/* Hover effect for links */
-nav ul li a:hover {
-  color: #04AA6D; /* Change color on hover */
-}
-
 /* Additional global styles */
 
 .container {
