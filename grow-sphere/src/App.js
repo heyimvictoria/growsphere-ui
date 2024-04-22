@@ -6,12 +6,14 @@ import "./App.css";
 import AuthService from "./services/AuthService";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import ContactForm from "./components/ContactForm";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
+
 
 class App extends Component {
     constructor(props) {
@@ -96,6 +98,10 @@ class App extends Component {
                                 <li className="nav-item">
                                     <NavLink to="/register" className="nav-link">Sign Up</NavLink>
                                 </li>
+                                <li className="nav-item">
+                                    <NavLink to="/contact" className="nav-link">Contact Us</NavLink>
+                                     </li>
+
                             </ul>
                         )}
                     </div>
@@ -106,6 +112,7 @@ class App extends Component {
                         <Route path="/home" element={<Home />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/contact" element={<ContactForm/>} />
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/user" element={<BoardUser />} />
                         <Route path="/mod" element={<BoardModerator />} />
