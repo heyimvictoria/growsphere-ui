@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext'; // Adjust the path as necessary
+import 'bootstrap/dist/css/bootstrap.min.css'; // For Bootstrap styles
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // For Bootstrap JavaScript functionality, including tooltips
+
 
 const root = ReactDOM.createRoot(document.getElementById('root')); // Use createRoot
 root.render(

@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.react-tooltip {
+  z-index: 1000; 
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
 }
 
@@ -27,4 +32,6 @@
   to {
     transform: rotate(360deg);
   }
+
+  
 }
