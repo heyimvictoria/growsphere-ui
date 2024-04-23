@@ -7,6 +7,8 @@ import * as bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
+
+
 // making the json strings readible in the code
 const cleanString = (str) => str.replace(/(^"|"$)/g, '').trim();
 
@@ -134,7 +136,7 @@ function Calendar() {
                 }
               }}
             />
-            {plant.commonName} 
+            {plant.commonName} {/* Display the common name */}
           </li>
         ))}
       </ul>

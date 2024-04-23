@@ -7,7 +7,7 @@ import Register from './components/user/Register';
 import Dashboard from './components/user/Dashboard';
 import About from './components/About'; // Assume you have an About component
 import './index.css';
-import  Calendar from './components/user/Weather';
+import  Calendar from './components/user/Calendar';
 import 'bootstrap/dist/css/bootstrap.min.css'; // For Bootstrap styles
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // For Bootstrap JavaScript functionality, including tooltips
 
@@ -23,7 +23,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/weather" element={<Calendar />} />
+                <Route path="/calendar" element={<Calendar />} />
 
                 {/* Add more routes as needed */}
             </Routes>
