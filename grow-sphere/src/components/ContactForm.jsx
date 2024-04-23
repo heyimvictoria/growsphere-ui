@@ -15,7 +15,7 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-
+// publicKey displaying on frontend ok, spammers only able to send your templates with your content.
     const serviceId = 'service_qwxb96g';
     const templateId = 'template_w8agulo';
     const publicKey = '_0euNy1IazGmvY-60';
