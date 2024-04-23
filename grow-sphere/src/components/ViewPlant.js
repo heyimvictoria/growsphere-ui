@@ -6,21 +6,7 @@ import authHeader from '../services/AuthHeader';
 export default function ViewPlant() {
 
 
-    const[plant, setPlant] = useState({
-        commonName: "",
-        scientificName: "",
-        plantType: "",
-        waterFrequency: "",
-        waterRequirements: "",
-        insideSowDate: "",
-        sowDescription: "",
-        outsideSowDate: "",
-        harvestDate: "",
-        exposure: "",
-        phLevel: "",
-        fertilizerRatio: "",
-        fertilizerFrequency: ""
-    });
+    const[plant, setPlant] = useState({});
 
     const {id} = useParams();
 
@@ -28,24 +14,20 @@ export default function ViewPlant() {
         loadPlant();
     });
 
-    const loadPlant = async () => {
-        const result = await axios.get(`http://localhost:8080/plant/${id}`, {
+    async function loadPlant() {
+      let response = await axios.get(`http://localhost:8081/plant/${id}`, {
             headers: authHeader()
-          })
-            .then(response => {
-              console.log(response.data);
-            })
-            .catch(error => {
-              console.error(error);
           });
-        setPlant(result.data);
+          let garden = response.data;
+          setPlant(garden);
+          console.log(plant);
     }
 
   return (
     <div className='container'>
         <div className='row'>
             <div className='col-md-6 offset-md-3 border rounded p-4 mt-2 shadow'>
-                <h2 className='text-center m-4'>View Plant</h2>
+                <h2 className='text-center m-4'>{plant.commonName}</h2>
                 <div className='card'>
                     <div className='card-header'>
                         Details of plant id: {plant.id}

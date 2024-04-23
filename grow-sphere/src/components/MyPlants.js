@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AuthService from '../services/AuthService';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { Container, Button, darkColors } from 'react-floating-action-button'
@@ -27,17 +27,13 @@ export default function MyPlants() {
     loadPlants();
   }, []);
 
-  const loadPlants = async () => {
-    const result = await axios.get(`http://localhost:8081/users/${userId}/plants`, {
-      headers: authHeader()
-    })
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-    });
-    setPlants(result.data);
+  async function loadPlants() {
+    let response = await axios.get(`http://localhost:8081/users/${userId}/plants`, {
+          headers: authHeader()
+        });
+        let garden = response.data;
+        setPlants(garden);
+        console.log(plants);
   }
 
   const deletePlant = async (plantId) => {
@@ -85,11 +81,6 @@ export default function MyPlants() {
                 </tr>
               ))
             }
-            <tr>
-              <td></td>
-              <td>{currentUserInfo.username}</td>
-              <td>{currentUserInfo.email}</td>
-            </tr>
           </tbody>
         </table>
         <div>
@@ -105,36 +96,3 @@ export default function MyPlants() {
     </div>
   );
 }
-
-// export default class AddPlants extends Component {
-//   constructor(props) {
-//       super(props);
-
-//       // Initialize state variables for this component.
-//       this.state = {
-//           redirect: null, // Will store the URL to redirect to if necessary.
-//           userReady: false, // Indicates if the user data is ready to be displayed.
-//           currentUser: { username: "" } // Initially, no user data is available.
-//       };
-//   }
-
-  
-//   componentDidMount() {
-//     // Retrieve the current user's details from AuthService when the component mounts.
-//     const currentUser = AuthService.getCurrentUser();
-    
-//     // If no current user data is found, set a redirect path to the home page.
-//     if (!currentUser) this.setState({ redirect: "/home" });
-    
-//     // Update state with the current user's data and set userReady to true to indicate that the data is ready to be displayed.
-//     this.setState({ currentUser: currentUser, userReady: true });
-
-//     const [plants, setPlants] = useState([]);
-//   }
-
-//   render() {
-//     return (
-//       <div></div>
-//     )
-//   }
-// }

@@ -14,6 +14,7 @@ import BoardAdmin from "./components/BoardAdmin";
 import MyPlants from "./components/MyPlants";
 import ViewPlant from "./components/ViewPlant";
 import EventBus from "./common/EventBus";
+import AddPlants from "./components/user/AddPlants";
 
 class App extends Component {
     constructor(props) {
@@ -113,6 +114,7 @@ class App extends Component {
                         <Route path="/mod" element={<BoardModerator />} />
                         <Route path="/admin" element={<BoardAdmin />} />
                         <Route path="/plants" element={<MyPlants />} />
+                        <Route path="/add-plants" element={<AddPlants />} />
                         <Route exact path='/viewPlant/:id' element={<ViewPlant />}/>
                     </Routes>
                 </div>
