@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import AuthService from "../services/AuthService"; // Import the AuthService to handle authentication related functionalities.
 
 // Define the Profile class component that extends the base Component class from React.
@@ -64,6 +64,7 @@ export default class Profile extends Component {
                             {currentUser.roles &&
                                 currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
                         </ul>
+                        <Link className="btn btn-outline-success" to={"/plants"}>My Garden</Link>
                     </div>
                 ) : null}
             </div>

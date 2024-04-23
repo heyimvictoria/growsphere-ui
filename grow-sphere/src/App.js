@@ -11,6 +11,8 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
+import MyPlants from "./components/MyPlants";
+import ViewPlant from "./components/ViewPlant";
 import EventBus from "./common/EventBus";
 
 class App extends Component {
@@ -110,6 +112,8 @@ class App extends Component {
                         <Route path="/user" element={<BoardUser />} />
                         <Route path="/mod" element={<BoardModerator />} />
                         <Route path="/admin" element={<BoardAdmin />} />
+                        <Route path="/plants" element={<MyPlants />} />
+                        <Route exact path='/viewPlant/:id' element={<ViewPlant />}/>
                     </Routes>
                 </div>
             </div>
