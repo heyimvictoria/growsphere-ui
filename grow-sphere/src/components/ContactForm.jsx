@@ -49,6 +49,7 @@ const ContactForm = () => {
       <input
       type="text"
       placeholder="Your Name"
+      maxLength={25}
       value={name}
       onChange={(e) => setName(e.target.value)}/>
       
@@ -57,16 +58,41 @@ const ContactForm = () => {
       <label>Email</label>
       <input
       type="text"
+      maxLength={30}
       placeholder="Your Email"
+
       value={email}
       onChange={(e) => setEmail(e.target.value)} />
 
+<label><strong>GrowSphere Member</strong></label>
+      
+      <div className="radio-group">
+        
+        YES
+        <input type="checkbox" id= "myCheckBox"/>
+         <script>
+        document.getElementById('myCheckBox').checked = true; 
+        document.getElementById('myCheckBox').checked = false
+        </script>
+      </div>
+      <div className="radio-group">
+        
+        NO
+        <input type="checkbox" id= "myCheckBox"/>
+         <script>
+        document.getElementById('myCheckBox').checked = true;
+        document.getElementById('myCheckBox').checked = false
+        </script>
+      </div>
+      
+              
 
       <label>Message</label>
      
       <textarea
       cols="30"
       rows="10"
+      maxLength={100}
       value={message}
       placeholder='Please provide as much detail as possible'
       onChange={(e) => setMessage(e.target.value)}
@@ -76,7 +102,8 @@ const ContactForm = () => {
       </textarea>
       <button type="submit" >Submit</button>
     </form>
-  )
+  ) 
 }
 
 export default ContactForm
+
