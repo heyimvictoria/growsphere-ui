@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import coverPhoto from '../assets/Growspherecoverphoto.jpeg';
+
 
 // Import UserService which is likely to contain API methods for fetching backend data.
 import UserService from "../services/UserService";
@@ -42,8 +44,11 @@ export default class Home extends Component {
     // Render method returns the JSX that describes what should be rendered on the screen.
     render() {
         return (
-            // Container div for the component's content, using Bootstrap class for styling.
-            <div className="container">
+            <div>
+                {/* Image added as a module import */}
+                <section id="cover">
+                <img src={coverPhoto} alt="Cover" className="cover-photo" />
+                </section>
                 <header className="jumbotron">
                     <h3>{this.state.content}</h3>
                 </header>
