@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./App.scss";
 
 import AuthService from "./services/AuthService";
 import Login from "./components/Login";
@@ -13,6 +13,7 @@ import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
+import AboutComponent from "./components/About";
 
 
 class App extends Component {
@@ -57,13 +58,18 @@ class App extends Component {
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark custom-navbar">
                     <Link to="/" className="navbar-brand">GrowSphere</Link>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
                                 <NavLink to="/home" className="nav-link">Home</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/about" className="nav-link">About</NavLink>
                             </li>
                             {showModeratorBoard && (
                                 <li className="nav-item">
@@ -84,7 +90,7 @@ class App extends Component {
                         {currentUser ? (
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <NavLink to="/profile" className="nav-link">{currentUser.username}</NavLink>
+                                <NavLink to="/profile" className="nav-link">{currentUser.username}</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <a href="/login" className="nav-link" onClick={this.logOut}>Log Out</a>
@@ -107,19 +113,20 @@ class App extends Component {
                     </div>
                 </nav>
                 <div className="container mt-3">
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/home" element={<Home />} />
+                  <Routes>
+                  <Route path="/" element={<Home />} />
+                    <Route path="/home" element={<Home />} />
+                      <Route path="/about" element={<AboutComponent />} />
                         <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
-                        <Route path="/contact" element={<ContactForm/>} />
-                        <Route path="/profile" element={<Profile />} />
-                        <Route path="/user" element={<BoardUser />} />
-                        <Route path="/mod" element={<BoardModerator />} />
-                        <Route path="/admin" element={<BoardAdmin />} />
-                    </Routes>
-                </div>
+                          <Route path="/register" element={<Register />} />
+                            <Route path="/contact" element={<ContactForm />} />
+                              <Route path="/profile" element={<Profile />} />
+                                <Route path="/user" element={<BoardUser />} />
+                                  <Route path="/mod" element={<BoardModerator />} />
+                                    <Route path="/admin" element={<BoardAdmin />} />
+                                      </Routes>
             </div>
+          </div>
         );
     }
 }
