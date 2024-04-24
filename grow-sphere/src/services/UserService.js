@@ -30,6 +30,9 @@ class UserService {
         // Axios GET request to 'http://localhost:8080/api/test/admin' with authorization headers
         return axios.get(API_URL + 'admin', { headers: authHeader() });
     }
+    getUserGrowthPts() {
+        return axios.get(API_URL + 'userGrowthPts', {headers: authHeader() });
+    }
 }
 
 // Export an instance of UserService so it can be imported and used in other parts of the application

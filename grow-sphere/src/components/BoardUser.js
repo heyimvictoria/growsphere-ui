@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import axios from "axios";
+
 
 // Import UserService, which likely contains API calls to fetch user-specific data.
 import UserService from "../services/UserService";
 // Import EventBus, a utility to handle cross-component communication via events.
 import EventBus from "../common/EventBus";
+
+
 
 // Define a BoardUser class that extends Component, making it a React component.
 export default class BoardUser extends Component {
@@ -44,7 +48,23 @@ export default class BoardUser extends Component {
                 }
             }
         );
+        const [userGrowthPts, setUserGrowthPts] = useState(0);
+    useEffect(); => {
+        const fetchUserGrowthPts = async() => {
+            try {
+                const response = await axios.get('/api/user/userGrowthPts');
+                setUserGrowthPts(response.data.userGrowthPts);
+
+            } catch (error) {
+                console.error('Error fetching user Growth Points:'. error);
+            }
+        };
+
+        fetchUserGrowthPts();
+
+    } [];
     }
+    
 
     // The render method returns the JSX that describes the component's UI.
     render() {
@@ -53,6 +73,8 @@ export default class BoardUser extends Component {
                 <header className="jumbotron">
                     // Display the content stored in the state. This could be user-specific data or an error message.
                     <h3>{this.state.content}</h3>
+                    <h1>User Points: {userGrowthPts} </h1>
+
                 </header>
             </div>
         );
