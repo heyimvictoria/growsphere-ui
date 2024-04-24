@@ -48,21 +48,7 @@ export default class BoardUser extends Component {
                 }
             }
         );
-        const [userGrowthPts, setUserGrowthPts] = useState(0);
-    useEffect(); => {
-        const fetchUserGrowthPts = async() => {
-            try {
-                const response = await axios.get('/api/user/userGrowthPts');
-                setUserGrowthPts(response.data.userGrowthPts);
 
-            } catch (error) {
-                console.error('Error fetching user Growth Points:'. error);
-            }
-        };
-
-        fetchUserGrowthPts();
-
-    } [];
     }
     
 
