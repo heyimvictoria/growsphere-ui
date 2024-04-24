@@ -2,6 +2,7 @@ import React, {useState}  from 'react';
 import emailjs from '@emailjs/browser';
 
 
+//$ npm install --save @emailjs/browser //
 
 
 const ContactForm = () => {
@@ -15,7 +16,12 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-// publicKey displaying on frontend ok, spammers only able to send your templates with your content.
+// publicKey displaying on frontend ok, spammers only able to send your templates with your content/constraints/requirements
+
+//someone could copy your code, but they will only be able to send your templates, with your content, 
+//and will not be able to send a custom email with their own content (spam). Which is absolutely not interesting for spammers.
+//growsphere email: contactgrowshphere@gmail.com gmail password: quadsquad4
+
     const serviceId = 'service_qwxb96g';
     const templateId = 'template_w8agulo';
     const publicKey = '_0euNy1IazGmvY-60';
@@ -43,6 +49,7 @@ const ContactForm = () => {
     });
   }
  
+  //text limits set to avoid input spammers//
   return (
     <form onSubmit={handleSubmit} className='contactForm'>
       <label>Name</label>
