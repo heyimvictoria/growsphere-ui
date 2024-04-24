@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // For Bootstrap JavaScript functionality, including tooltips
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import AuthService from "./services/AuthService";
 import Login from "./components/Login";
@@ -14,7 +14,8 @@ import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
 import AboutComponent from "./components/About";
-import Calendar from "./components/Calendar";
+import WeatherComponent from "./components/Weather"; // Imported from the weather-api-frontend branch
+import Calendar from "./components/Calendar"; // Imported from the main branch
 
 class App extends Component {
     constructor(props) {
@@ -72,6 +73,9 @@ class App extends Component {
                                 <NavLink to="/about" className="nav-link">About</NavLink>
                             </li>
                             <li className="nav-item">
+                                <NavLink to="/weather" className="nav-link">Weather</NavLink>
+                            </li>
+                            <li className="nav-item">
                                 <NavLink to="/calendar" className="nav-link">Calendar</NavLink>
                             </li>
                             {showModeratorBoard && (
@@ -118,6 +122,7 @@ class App extends Component {
                         <Route path="/home" element={<Home/>}/>
                         <Route path="/about" element={<AboutComponent/>}/>
                         <Route path="/calendar" element={<Calendar/>}/>
+                        <Route path="/weather" element={<WeatherComponent/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/profile" element={<Profile/>}/>
