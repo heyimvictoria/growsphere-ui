@@ -13,6 +13,7 @@ import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
 import AboutComponent from "./components/About";
+import WeatherComponent from "./components/Weather";
 
 class App extends Component {
     constructor(props) {
@@ -69,6 +70,9 @@ class App extends Component {
                             <li className="nav-item">
                                 <NavLink to="/about" className="nav-link">About</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink to="/weather" className="nav-link">Weather</NavLink>
+                            </li>
                             {showModeratorBoard && (
                                 <li className="nav-item">
                                     <NavLink to="/mod" className="nav-link">Moderator Board</NavLink>
@@ -118,6 +122,7 @@ class App extends Component {
                         <Route path="/user" element={<BoardUser/>}/>
                         <Route path="/mod" element={<BoardModerator/>}/>
                         <Route path="/admin" element={<BoardAdmin/>}/>
+                        <Route path="/weather" element={<WeatherComponent/>}/>
                     </Routes>
                 </div>
             </div>
