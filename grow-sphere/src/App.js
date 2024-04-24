@@ -7,6 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import AuthService from "./services/AuthService";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import ContactForm from "./components/ContactForm";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
@@ -16,6 +17,7 @@ import EventBus from "./common/EventBus";
 import AboutComponent from "./components/About";
 import WeatherComponent from "./components/Weather"; // Imported from the weather-api-frontend branch
 import Calendar from "./components/Calendar"; // Imported from the main branch
+
 
 class App extends Component {
     constructor(props) {
@@ -111,12 +113,16 @@ class App extends Component {
                                 <li className="nav-item">
                                     <NavLink to="/register" className="nav-link">Sign Up</NavLink>
                                 </li>
+                                <li className="nav-item">
+                                    <NavLink to="/contact" className="nav-link">Contact Us</NavLink>
+                                     </li>
+
                             </ul>
                         )}
                     </div>
                 </nav>
-
                 <div className="container mt-3">
+
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/home" element={<Home/>}/>
@@ -125,13 +131,16 @@ class App extends Component {
                         <Route path="/weather" element={<WeatherComponent/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>
+                         <Route path="/contact" element={<ContactForm />} />
                         <Route path="/profile" element={<Profile/>}/>
                         <Route path="/user" element={<BoardUser/>}/>
                         <Route path="/mod" element={<BoardModerator/>}/>
                         <Route path="/admin" element={<BoardAdmin/>}/>
                     </Routes>
                 </div>
+
             </div>
+          </div>
         );
     }
 }
