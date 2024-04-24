@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import AuthService from "./services/AuthService";
 import Login from "./components/Login";
@@ -14,6 +15,8 @@ import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
 import AboutComponent from "./components/About";
+import WeatherComponent from "./components/Weather"; // Imported from the weather-api-frontend branch
+import Calendar from "./components/Calendar"; // Imported from the main branch
 
 
 class App extends Component {
@@ -71,6 +74,12 @@ class App extends Component {
                             <li className="nav-item">
                                 <NavLink to="/about" className="nav-link">About</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink to="/weather" className="nav-link">Weather</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/calendar" className="nav-link">Calendar</NavLink>
+                            </li>
                             {showModeratorBoard && (
                                 <li className="nav-item">
                                     <NavLink to="/mod" className="nav-link">Moderator Board</NavLink>
@@ -113,18 +122,23 @@ class App extends Component {
                     </div>
                 </nav>
                 <div className="container mt-3">
-                  <Routes>
-                  <Route path="/" element={<Home />} />
-                    <Route path="/home" element={<Home />} />
-                      <Route path="/about" element={<AboutComponent />} />
-                        <Route path="/login" element={<Login />} />
-                          <Route path="/register" element={<Register />} />
-                            <Route path="/contact" element={<ContactForm />} />
-                              <Route path="/profile" element={<Profile />} />
-                                <Route path="/user" element={<BoardUser />} />
-                                  <Route path="/mod" element={<BoardModerator />} />
-                                    <Route path="/admin" element={<BoardAdmin />} />
-                                      </Routes>
+
+                    <Routes>
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/home" element={<Home/>}/>
+                        <Route path="/about" element={<AboutComponent/>}/>
+                        <Route path="/calendar" element={<Calendar/>}/>
+                        <Route path="/weather" element={<WeatherComponent/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="/register" element={<Register/>}/>
+                         <Route path="/contact" element={<ContactForm />} />
+                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/user" element={<BoardUser/>}/>
+                        <Route path="/mod" element={<BoardModerator/>}/>
+                        <Route path="/admin" element={<BoardAdmin/>}/>
+                    </Routes>
+                </div>
+
             </div>
           </div>
         );
