@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // For Bootstrap JavaScript functionality, including tooltips
 
 import AuthService from "./services/AuthService";
 import Login from "./components/Login";
@@ -13,6 +14,7 @@ import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
 import AboutComponent from "./components/About";
+import Calendar from "./components/Calendar";
 
 class App extends Component {
     constructor(props) {
@@ -69,6 +71,9 @@ class App extends Component {
                             <li className="nav-item">
                                 <NavLink to="/about" className="nav-link">About</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink to="/calendar" className="nav-link">Calendar</NavLink>
+                            </li>
                             {showModeratorBoard && (
                                 <li className="nav-item">
                                     <NavLink to="/mod" className="nav-link">Moderator Board</NavLink>
@@ -112,6 +117,7 @@ class App extends Component {
                         <Route path="/" element={<Home/>}/>
                         <Route path="/home" element={<Home/>}/>
                         <Route path="/about" element={<AboutComponent/>}/>
+                        <Route path="/calendar" element={<Calendar/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/profile" element={<Profile/>}/>
