@@ -56,7 +56,7 @@ class App extends Component {
     render() {
         const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
         return (
-            <div>
+            <div className="site-container">
                 <nav className="navbar navbar-expand-md navbar-dark custom-navbar">
                     <Link to="/" className="navbar-brand">
                         <img src={logo} alt="GrowSphere Logo"
@@ -116,7 +116,7 @@ class App extends Component {
                         )}
                     </div>
                 </nav>
-
+                <main>
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/home" element={<Home/>}/>
@@ -129,7 +129,7 @@ class App extends Component {
                     <Route path="/mod" element={<BoardModerator/>}/>
                     <Route path="/admin" element={<BoardAdmin/>}/>
                 </Routes>
-
+                </main>
                 <footer className="footer-48201">
                     <div className="container">
                         <div className="row">
