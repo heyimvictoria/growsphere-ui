@@ -8,6 +8,7 @@ import logo from "./assets/growspherelogo.svg";
 import AuthService from "./services/AuthService";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import ContactForm from "./components/ContactForm";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
@@ -111,16 +112,19 @@ class App extends Component {
                         ) : (
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <NavLink to="/login" className's="nav-link">Login</NavLink>
+                                    <NavLink to="/login" className="nav-link">Login</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <NavLink to="/register" className="nav-link">Sign Up</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to="/contact" className="nav-link">Contact Us</NavLink>
                                 </li>
                             </ul>
                         )}
                     </div>
                 </nav>
-                <main>
+                <main className="container mt-3">
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/home" element={<Home/>}/>
@@ -129,6 +133,7 @@ class App extends Component {
                         <Route path="/weather" element={<Weather/>}/>
                         <Route path="/calendar" element={<Calendar/>}/>
                         <Route path="/register" element={<Register/>}/>
+                        <Route path="/contact" element={<ContactForm/>}/>
                         <Route path="/profile" element={<Profile/>}/>
                         <Route path="/user" element={<BoardUser/>}/>
                         <Route path="/mod" element={<BoardModerator/>}/>

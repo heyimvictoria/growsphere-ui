@@ -53,6 +53,7 @@ export default class BoardUser extends Component {
                 <header className="jumbotron">
                     // Display the content stored in the state. This could be user-specific data or an error message.
                     <h3>{this.state.content}</h3>
+                    
                 </header>
             </div>
         );
