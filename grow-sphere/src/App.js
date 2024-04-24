@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import logo from "./assets/growspherelogo.svg";
-
 
 import AuthService from "./services/AuthService";
 import Login from "./components/Login";
@@ -16,6 +16,7 @@ import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
 import AboutComponent from "./components/About";
 import Weather from "./components/Weather";
+import Calendar from "./components/Calendar";
 
 class App extends Component {
     constructor(props) {
@@ -79,6 +80,9 @@ class App extends Component {
                             <li className="nav-item">
                                 <NavLink to="/weather" className="nav-link">Weather</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink to="/calendar" className="nav-link">Calendar</NavLink>
+                            </li>
                             {showModeratorBoard && (
                                 <li className="nav-item">
                                     <NavLink to="/mod" className="nav-link">Moderator Board</NavLink>
@@ -107,7 +111,7 @@ class App extends Component {
                         ) : (
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <NavLink to="/login" className="nav-link">Login</NavLink>
+                                    <NavLink to="/login" className's="nav-link">Login</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <NavLink to="/register" className="nav-link">Sign Up</NavLink>
@@ -117,18 +121,19 @@ class App extends Component {
                     </div>
                 </nav>
                 <main>
-                <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/home" element={<Home/>}/>
-                    <Route path="/about" element={<AboutComponent/>}/>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/weather" element={<Weather/>}/>
-                    <Route path="/register" element={<Register/>}/>
-                    <Route path="/profile" element={<Profile/>}/>
-                    <Route path="/user" element={<BoardUser/>}/>
-                    <Route path="/mod" element={<BoardModerator/>}/>
-                    <Route path="/admin" element={<BoardAdmin/>}/>
-                </Routes>
+                    <Routes>
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/home" element={<Home/>}/>
+                        <Route path="/about" element={<AboutComponent/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="/weather" element={<Weather/>}/>
+                        <Route path="/calendar" element={<Calendar/>}/>
+                        <Route path="/register" element={<Register/>}/>
+                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/user" element={<BoardUser/>}/>
+                        <Route path="/mod" element={<BoardModerator/>}/>
+                        <Route path="/admin" element={<BoardAdmin/>}/>
+                    </Routes>
                 </main>
                 <footer className="footer-48201">
                     <div className="container">
@@ -158,7 +163,7 @@ class App extends Component {
                             <div className="col-md">
                                 <ul className="list-unstyled nav-links">
                                     <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Terms &amp; Conditions</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -168,15 +173,13 @@ class App extends Component {
                                     <p>
                                         <small>© 2024 GrowSphere. All Rights Reserved.</small><br/>
                                         <small>Final Project for Launchcode's 2024 Liftoff Program.</small><br/>
-                                        <small>Created by: <a href="https://github.com/travaughn33">Travaughn Watson</a>, <a href="https://github.com/ZimDman">Ryan Winkler</a>, <a href="https://github.com/stephenmdevine">Stephen Devine</a>, <a href="https://github.com/SamGoessling">Sam
-                                            Goessling</a></small>
+                                        <small>Created by: <a href="https://github.com/travaughn33">Travaughn Watson</a>, <a href="https://github.com/ZimDman">Ryan Winkler</a>, <a href="https://github.com/stephenmdevine">Stephen Devine</a>, <a href="https://github.com/SamGoessling">Sam Goessling</a></small>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </footer>
-
             </div>
         );
     }
