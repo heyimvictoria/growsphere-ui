@@ -7,6 +7,7 @@ import AuthService from "./services/AuthService";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
+import GrowthPoints from "./components/GrowthPoints";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
@@ -83,6 +84,12 @@ class App extends Component {
                                 <li className="nav-item">
                                     <NavLink to="/user" className="nav-link">User</NavLink>
                                 </li>
+
+                            )}
+                            { currentUser && (
+                                <li className= "nav-item">
+                                    <NavLink to="/points" className="nav-link">Growth Points</NavLink>
+                                    </li>
                             )}
                         </ul>
                         {currentUser ? (
@@ -112,6 +119,7 @@ class App extends Component {
                         <Route path="/" element={<Home/>}/>
                         <Route path="/home" element={<Home/>}/>
                         <Route path="/about" element={<AboutComponent/>}/>
+                        <Route path="/points" element={<GrowthPoints/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/profile" element={<Profile/>}/>
