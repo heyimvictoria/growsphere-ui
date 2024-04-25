@@ -138,9 +138,8 @@ class App extends Component {
                         <Route path="/admin" element={<BoardAdmin/>}/>
                     </Routes>
                 </div>
-
             </div>
-          </div>
+
         );
     }
 }
