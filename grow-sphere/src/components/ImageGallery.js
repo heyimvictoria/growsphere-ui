@@ -8,7 +8,7 @@ import { v4 } from "uuid";
 
 function ImageGallery () {
 
-    // add notes here
+    //
     const [imageUpload, setImageUpload] = useState(null);
     const [imageList, setImageList] = useState([]) // create state to keep track / list of urls for each image uploded
 
