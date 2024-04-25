@@ -84,6 +84,9 @@ class App extends Component {
                             <li className="nav-item">
                                 <NavLink to="/calendar" className="nav-link">Calendar</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink to="/contact" className="nav-link">Contact Us</NavLink>
+                            </li>
                             {showModeratorBoard && (
                                 <li className="nav-item">
                                     <NavLink to="/mod" className="nav-link">Moderator Board</NavLink>
@@ -95,17 +98,17 @@ class App extends Component {
                                 </li>
                             )}
                             {currentUser && (
-                                <>
+                                <>{/*
                                     <li className="nav-item">
                                         <NavLink to="/user" className="nav-link">User</NavLink>
-                                    </li>
+                                    </li>*/}
                                 </>
                             )}
                         </ul>
                         {currentUser ? (
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <NavLink to="/profile" className="nav-link">{currentUser.username}</NavLink>
+                                <NavLink to="/profile" className="nav-link">{currentUser.username}</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <a href="/login" className="nav-link" onClick={this.logOut}>Log Out</a>
@@ -119,9 +122,7 @@ class App extends Component {
                                 <li className="nav-item">
                                     <NavLink to="/register" className="nav-link">Sign Up</NavLink>
                                 </li>
-                                <li className="nav-item">
-                                    <NavLink to="/contact" className="nav-link">Contact Us</NavLink>
-                                </li>
+
                             </ul>
                         )}
                     </div>

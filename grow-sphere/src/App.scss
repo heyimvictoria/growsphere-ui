@@ -7,33 +7,82 @@
 body {
   color: black;
   font-family: $font-family-base;
-  background: linear-gradient(to right, #04AA6D, #90fdc6);
+  //background: linear-gradient(to top, #b6b6b6, #90fdc6);
+  background: #b0d8c4;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .custom-navbar {
-  background-color: #000; // Using a Bootstrap color variable
+  background-color: #000;
   color: $white;
-  padding: 1rem;
+  padding-right: 10px;
+  padding-left: 10px;
   display: flex;
   justify-content: space-between;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  a {
+    color: $white;
+    &:hover {
+      color: #00ff80;
+    }
+  }
 }
 
-// Media query using Bootstrap's breakpoint variable
-@media (max-width: map-get($grid-breakpoints, lg)) {
-  .navbar-nav {
-    background-color: $gray-800; // Darker for mobile nav
+.home-container {
+  position: relative;
+  width: 100%;
+}
+
+.cover-photo {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(60%);
+}
+
+// Apply hover effect globally to all links
+a {
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #00ff80;
   }
+}
+
+// Media queries
+@media (max-width: map-get($grid-breakpoints, md)) {
+  .navbar-nav {
+    background-color: $gray-800;
+  }
+  .cover-photo {
+    max-height: 300px;
+  }
+}
+
+.container, .container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.jumbotron {
+  padding-top: 0;
 }
 
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 0 2rem;
+  padding: 2rem 2rem;
 }
 
 .userform-container {
@@ -59,20 +108,11 @@ form {
   box-shadow: $box-shadow;
 }
 
-.profile-img-card {
-  width: 96px;
-  height: 96px;
-  display: block;
-  margin: 0 auto 10px;
-  border-radius: 50%;
-}
-
 .error {
   color: $danger;
   padding: 0.5rem;
 }
 
-// Profile Page Specific Styles
 .profile-page {
   .profile-card {
     background-color: $white;
@@ -83,7 +123,7 @@ form {
 
     .profile-header {
       margin-bottom: 1rem;
-      font-size: 1.5rem; // Larger text for the header
+      font-size: 1.5rem;
     }
 
     .profile-details {
@@ -91,13 +131,13 @@ form {
       line-height: 1.6;
 
       strong {
-        color: $black; // Light color for strong tags
+        color: $black;
       }
     }
 
     ul {
       padding-left: 20px;
-      list-style-type: none; // No bullets for a cleaner look
+      list-style-type: none;
 
       li {
         margin-bottom: 0.25rem;
@@ -106,7 +146,17 @@ form {
   }
 }
 
-// Specific styles for the About page card
+.site-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+
 .about-page {
   .card {
     background-color: $white;
@@ -116,7 +166,7 @@ form {
     box-shadow: 0 4px 8px rgba($black, .1);
 
     .card-title {
-      color: $primary; // Use Bootstrap's primary color
+      color: $primary;
     }
 
     h2 {
@@ -125,7 +175,7 @@ form {
     }
 
     p, ul {
-      color: $gray-700; // Slightly softer than pure black
+      color: $gray-700;
       line-height: 1.7;
     }
 
@@ -133,4 +183,49 @@ form {
       padding-left: 1rem;
     }
   }
+}
+
+.footer-48201 {
+  padding: 2rem 0;
+  background-color: #000;
+  color: #777;
+
+  .footer-site-logo {
+    font-size: 1.5rem;
+    color: $white;
+  }
+
+  a, .nav-links a {
+    text-decoration: none; // Ensures all links inside the footer have no underline
+    color: darken($white, 50%);
+    &:hover {
+      color: #00ff80;
+      text-decoration: none; // Important to add this if hover effects reapply the underline
+    }
+  }
+
+  .nav-links {
+    li {
+      text-align: left;
+      margin-bottom: 8px;
+    }
+  }
+
+  .copyright {
+    border-top: 1px solid darken($white, 75%);
+  }
+}
+
+.additional-info {
+  padding: 20px;
+  background-color: #e9ecef;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.intro-text {
+  margin-top: 20px;
+  font-size: 40px;
+  line-height: 1.6;
 }
