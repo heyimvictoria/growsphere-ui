@@ -18,6 +18,7 @@ import EventBus from "./common/EventBus";
 import AboutComponent from "./components/About";
 import Weather from "./components/Weather";
 import Calendar from "./components/Calendar";
+import PhotoUploader from "./components/PhotoUploader";
 
 class App extends Component {
     constructor(props) {
@@ -95,9 +96,14 @@ class App extends Component {
                                 </li>
                             )}
                             {currentUser && (
-                                <li className="nav-item">
-                                    <NavLink to="/user" className="nav-link">User</NavLink>
-                                </li>
+                                <>
+                                    <li className="nav-item">
+                                        <NavLink to="/user" className="nav-link">User</NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink to="/photo-uploader" className="nav-link">Photo Uploader</NavLink>
+                                    </li>
+                                </>
                             )}
                         </ul>
                         {currentUser ? (
@@ -124,7 +130,6 @@ class App extends Component {
                         )}
                     </div>
                 </nav>
-                <main className="container mt-3">
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/home" element={<Home/>}/>
@@ -138,8 +143,8 @@ class App extends Component {
                         <Route path="/user" element={<BoardUser/>}/>
                         <Route path="/mod" element={<BoardModerator/>}/>
                         <Route path="/admin" element={<BoardAdmin/>}/>
+                        <Route path="/photo-uploader" element={<PhotoUploader/>}/>
                     </Routes>
-                </main>
                 <footer className="footer-48201">
                     <div className="container">
                         <div className="row">
