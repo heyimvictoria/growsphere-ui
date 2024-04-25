@@ -1,19 +1,18 @@
 import { useState, useEffect } from "react";
+import { ref, uploadBytes, getDownloadURL, listAll, list} from "firebase/storage";
 import { storage } from "./firebase";
-import { uploadBytes, getDownloadURL, listAll} from "firebase/storage";
-import { ref } from "firebase/storage";
 import { v4 } from "uuid";
 
 function ImageGallery () {
     const [imageUpload, setImageUpload] = useState(null);
     const [imageList, setImageList] = useState([])
 
-    const imageListRef = ref();
+    const imageListRef = ref(storage, "images/");
     const uploadImage = () => {
         if (imageUpload == null) return;
-        const imageRef = ref();
+        const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
         uploadBytes(imageRef, imageUpload).then((snapshot) => {
-            getDownloadURL(snapshot.ref()).then((url) => {
+            getDownloadURL(snapshot.ref).then((url) => {
                 setImageList((prev) => [...prev,url ])   
             })
         });
