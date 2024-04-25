@@ -3,10 +3,16 @@ import { ref, uploadBytes, getDownloadURL, listAll, list} from "firebase/storage
 import { storage } from "./firebase";
 import { v4 } from "uuid";
 
+// npm i firebase //
+
+
 function ImageGallery () {
+
+    // add notes here
     const [imageUpload, setImageUpload] = useState(null);
     const [imageList, setImageList] = useState([])
 
+    // add notes here
     const imageListRef = ref(storage, "images/");
     const uploadImage = () => {
         if (imageUpload == null) return;
@@ -18,6 +24,7 @@ function ImageGallery () {
         });
 
     };
+    // show the images previously uploaded
     useEffect(() => {
         listAll(imageListRef).then((response) => {
           response.items.forEach((item) => {
@@ -27,6 +34,7 @@ function ImageGallery () {
           });
         });
       }, []);
+      // onClick method to upload image to page and storage file
     return (
         <div className="ImageGallery">
             <input type="file" onChange={(event) => {
