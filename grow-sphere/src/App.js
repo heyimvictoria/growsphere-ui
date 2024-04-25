@@ -139,7 +139,6 @@ class App extends Component {
                     <Route path="/user" element={<BoardUser/>}/>
                     <Route path="/mod" element={<BoardModerator/>}/>
                     <Route path="/admin" element={<BoardAdmin/>}/>
-                    <Route path="/photo-uploader" element={<PhotoUploader/>}/>
                 </Routes>
                 <footer className="footer-48201">
                     <div className="container">
