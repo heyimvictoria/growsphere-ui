@@ -11,7 +11,7 @@ export default function MyPlants() {
   let userReady = false;
   let currentUser = { username: "" };
   
-  const currentUserInfo = AuthService.getCurrentUser(); // if the current user isn't logged in, we get a bunch of errors from a null currentUserInfo
+  const currentUserInfo = AuthService.getCurrentUser();
 
   if (!currentUserInfo) {redirect = "/home"}
   userReady = true;

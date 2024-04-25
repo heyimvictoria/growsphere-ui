@@ -6,14 +6,21 @@ import authHeader from '../../services/AuthHeader';
 
 export default function AddPlants() {
 
-
-    let navigate = useNavigate;
-    const currentUserInfo = AuthService.getCurrentUser();
-    const userId = currentUserInfo.id;
-
-    const [plants, setPlants] = useState([]);
+  let redirect = null;
+  let userReady = false;
+  let currentUser = { username: "" };
   
-    const { plantId } = useParams();
+  const currentUserInfo = AuthService.getCurrentUser();
+
+  if (!currentUserInfo) {redirect = "/home"}
+  userReady = true;
+  currentUser = { currentUserInfo };
+
+  const userId = currentUserInfo.id;
+
+  const [plants, setPlants] = useState([]);
+
+  const { plantId } = useParams();
 
     useEffect(() => {
       loadPlants();
@@ -40,10 +47,13 @@ export default function AddPlants() {
       loadPlants();
     }
 
-    const addPlant = async (plantId) => {   // Add plant feature is buggy.
-        await axios.post(`http://localhost:8081/user/${userId}/plant/${plantId}`, {
-          headers: authHeader()
-        })
+    const addPlant = async (plantId) => {
+      await axios.post(`http://localhost:8081/user/${userId}/plant/${plantId}`, {
+        userId: {userId},
+        plantId: {plantId}
+      }, {
+        headers: authHeader()
+      })
           .then(response => {
             console.log(response.data);
           })
