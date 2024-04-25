@@ -20,10 +20,16 @@ export default function AddPlants() {
 
   const [plants, setPlants] = useState([]);
 
+  const [myPlants, setMyPlants] = useState([]);
+
   const { plantId } = useParams();
 
     useEffect(() => {
       loadPlants();
+    }, []);
+
+    useEffect(() => {
+      loadMyPlants();
     }, []);
   
     async function loadPlants() {
@@ -32,6 +38,17 @@ export default function AddPlants() {
           });
           let store = response.data;
           setPlants(store);
+    }
+  
+
+    // Given more time, this function will look for plants already in your garden to disable useless buttons.
+    async function loadMyPlants() {
+      let response = await axios.get(`http://localhost:8081/users/${userId}/plants`, {
+            headers: authHeader()
+          });
+          let garden = response.data;
+          setMyPlants(garden);
+          console.log(myPlants);
     }
 
     const deletePlant = async (plantId) => {
@@ -87,7 +104,7 @@ export default function AddPlants() {
                       <td>{plant.commonName}</td>
                       <td>{plant.plantType}</td>
                       <td>
-                        <Link className='btn btn-success mx-2' to={`/viewPlant/${plant.id}`}>View</Link>
+                        <Link className='btn btn-success mx-2' to={`/plant/${plant.id}`}>View</Link>
                         <button className='btn btn-outline-success mx-2' onClick={() => addPlant(plant.id)}>Add</button>
                         <button className='btn btn-outline-danger mx-2' onClick={() => deletePlant(plant.id)}>Remove</button>
                       </td>
@@ -96,6 +113,7 @@ export default function AddPlants() {
                 }
               </tbody>
             </table>
+            <Link className='btn btn-outline-success' to={'/plants'}>Back to My Garden</Link>
           </div>
         </div>
       );

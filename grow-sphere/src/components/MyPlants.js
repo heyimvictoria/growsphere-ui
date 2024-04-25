@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import AuthService from '../services/AuthService';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { Container, Button, darkColors } from 'react-floating-action-button'
 import axios from 'axios';
 import authHeader from '../services/AuthHeader';
 
@@ -74,7 +73,7 @@ export default function MyPlants() {
                   <td>{plant.commonName}</td>
                   <td>{plant.plantType}</td>
                   <td>
-                    <Link className='btn btn-outline-success mx-2' to={`/viewPlant/${plant.id}`}>View</Link>
+                    <Link className='btn btn-outline-success mx-2' to={`/my-plant/${plant.id}`}>View</Link>
                     <button className='btn btn-outline-primary mx-2'>Water</button>
                     <button className='btn btn-outline-danger mx-2' onClick={() => deletePlant(plant.id)}>Remove</button>
                   </td>
@@ -83,14 +82,12 @@ export default function MyPlants() {
             }
           </tbody>
         </table>
-        <div>
-          <Container>
-            <Button
-            tooltip="Add a plant"
-            icon="fas fa-plus"
-            styles={{backgroundColor: darkColors.green}}
-            />
-          </Container>
+        <div className='fab-container'>
+          <div className='fab shadow'>
+            <div className='fab content'>
+              <Link className='btn plus-circle' to={'/add-plants'}>Add<br/>Plant</Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

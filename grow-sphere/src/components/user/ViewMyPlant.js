@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import authHeader from '../services/AuthHeader';
+import authHeader from '../../services/AuthHeader';
 
-export default function ViewPlant() {
+export default function ViewMyPlant() {
 
 
     const[plant, setPlant] = useState({});
@@ -86,7 +86,7 @@ export default function ViewPlant() {
                         </ul>
                     </div>
                 </div>
-                <Link className='btn btn-success my-2' to={"/add-plants"}>Back to Plant Shop</Link>
+                <Link className='btn btn-success my-2' to={"/plants"}>Back to My Garden</Link>
             </div>
         </div>
     </div>
