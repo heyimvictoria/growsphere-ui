@@ -12,6 +12,8 @@ import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
+import ForumHome from "./components/forum/ForumHome";
+import ViewTopic from "./components/forum/ViewTopic";
 
 class App extends Component {
     constructor(props) {
@@ -110,6 +112,8 @@ class App extends Component {
                         <Route path="/user" element={<BoardUser />} />
                         <Route path="/mod" element={<BoardModerator />} />
                         <Route path="/admin" element={<BoardAdmin />} />
+                        <Route path="/forum" element={<ForumHome />} />
+                        <Route exact path='/forum/topic/:id' element={<ViewTopic />} />
                     </Routes>
                 </div>
             </div>
