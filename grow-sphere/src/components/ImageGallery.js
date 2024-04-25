@@ -10,14 +10,14 @@ function ImageGallery () {
 
     // add notes here
     const [imageUpload, setImageUpload] = useState(null);
-    const [imageList, setImageList] = useState([])
+    const [imageList, setImageList] = useState([]) // create state to keep track / list of urls for each image uploded
 
-    // add notes here
     const imageListRef = ref(storage, "images/");
     const uploadImage = () => {
-        if (imageUpload == null) return;
-        const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-        uploadBytes(imageRef, imageUpload).then((snapshot) => {
+        if (imageUpload == null) return; // don't select image if empty//
+
+        const imageRef = ref(storage, `images/${imageUpload.name + v4()}`); // passing into storage folder// set name of image 
+        uploadBytes(imageRef, imageUpload).then((snapshot) => {                         // no two files have same name when uploaded //
             getDownloadURL(snapshot.ref).then((url) => {
                 setImageList((prev) => [...prev,url ])   
             })
@@ -36,13 +36,16 @@ function ImageGallery () {
       }, []);
       // onClick method to upload image to page and storage file
     return (
-        <div className="ImageGallery">
+        
+        <div className="ImageGallery"> 
+        <h1>Image Gallery</h1>
             <input type="file" onChange={(event) => {
-                setImageUpload(event.target.files[0]);
+                setImageUpload(event.target.files[0]); 
                 }}/>
             <button onClick={uploadImage}> Upload Image</button>
             {imageList.map((url) => {
                 return <img src={url} />;
+
             })}
 
         </div>
