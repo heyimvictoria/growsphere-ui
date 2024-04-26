@@ -6,7 +6,7 @@ const GrowthPoints = () => {
 
     useEffect(() => {
 
-        axios.get('/user/userGrowthPts')
+        axios.get('http://localhost:3000/user/{userId}/plant/{plantId}')
         .then(response => {
             const {userGrowthPts} = response.data;
 
