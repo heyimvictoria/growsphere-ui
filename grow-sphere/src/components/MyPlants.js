@@ -3,6 +3,8 @@ import AuthService from '../services/AuthService';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import authHeader from '../services/AuthHeader';
+import { Action, Fab } from 'react-tiny-fab';
+import 'react-tiny-fab/dist/styles.css';
 
 export default function MyPlants() {
 
@@ -82,12 +84,8 @@ export default function MyPlants() {
             }
           </tbody>
         </table>
-        <div className='fab-container'>
-          <div className='fab shadow'>
-            <div className='fab content'>
-              <Link className='btn plus-circle' to={'/add-plants'}>Add<br/>Plant</Link>
-            </div>
-          </div>
+        <div>
+          <Fab icon="+" text='Add Plant'><Link to={'/add-plants'}></Link></Fab>
         </div>
       </div>
     </div>
