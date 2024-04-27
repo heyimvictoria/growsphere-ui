@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import AuthService from "../services/AuthService";
 
 export default class Profile extends Component {
@@ -42,6 +42,9 @@ export default class Profile extends Component {
                                     {currentUser.roles && currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
                                 </ul>
                             </div>
+                        </div>
+                        <div>
+                            <Link className="btn btn-outline-success p-2" to={"/plants"}>My Garden</Link>
                         </div>
                     </div>
                 ) : <p>Loading...</p>}
