@@ -108,11 +108,17 @@ export default function AddPlants() {
                         <Link className='btn btn-success mx-2' to={`/plant/${plant.id}`}>View</Link>
                         <Popup trigger=
                           {<button className='btn btn-outline-success mx-2' onClick={() => addPlant(plant.id)}>Add</button>}>
-                          <div className='bg-light rounded p-2 border border-dark'>Plant Added</div>
+                          <div className='bg-light rounded p-2 border border-dark'>
+                            Plant Added
+                            <button className='btn btn-outline-success mx-2' onClick={() => addPlant(plant.id)}>Okay</button>
+                          </div>
                         </Popup>
                         <Popup trigger=
                           {<button className='btn btn-outline-danger mx-2' onClick={() => deletePlant(plant.id)}>Remove</button>}>
-                          <div className='bg-light rounded p-2 border border-dark'>Plant Removed</div>
+                          <div className='bg-light rounded p-2 border border-dark'>
+                            Plant Removed
+                            <button className='btn btn-outline-danger mx-2' onClick={() => deletePlant(plant.id)}>Okay</button>
+                          </div>
                         </Popup>
                       </td>
                     </tr>

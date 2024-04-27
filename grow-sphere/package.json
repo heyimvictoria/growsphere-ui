@@ -21,7 +21,8 @@
     "emailjs": "4.0.3",
     "fullcalendar": "^6.1.11",
     "moment": "^2.30.1",
-
+    "postcss-nesting": "^12.1.2",
+    "postcss-preset-env": "^9.5.9",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
