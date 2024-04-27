@@ -3,6 +3,7 @@ import AuthService from '../../services/AuthService'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import authHeader from '../../services/AuthHeader';
+import Popup from 'reactjs-popup';
 
 export default function AddPlants() {
 
@@ -105,8 +106,14 @@ export default function AddPlants() {
                       <td>{plant.plantType}</td>
                       <td>
                         <Link className='btn btn-success mx-2' to={`/plant/${plant.id}`}>View</Link>
-                        <button className='btn btn-outline-success mx-2' onClick={() => addPlant(plant.id)}>Add</button>
-                        <button className='btn btn-outline-danger mx-2' onClick={() => deletePlant(plant.id)}>Remove</button>
+                        <Popup trigger=
+                          {<button className='btn btn-outline-success mx-2' onClick={() => addPlant(plant.id)}>Add</button>}>
+                          <div className='bg-light rounded p-2 border border-dark'>Plant Added</div>
+                        </Popup>
+                        <Popup trigger=
+                          {<button className='btn btn-outline-danger mx-2' onClick={() => deletePlant(plant.id)}>Remove</button>}>
+                          <div className='bg-light rounded p-2 border border-dark'>Plant Removed</div>
+                        </Popup>
                       </td>
                     </tr>
                   ))

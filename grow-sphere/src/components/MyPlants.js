@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import AuthService from '../services/AuthService';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import authHeader from '../services/AuthHeader';
 import { Action, Fab } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
+import Popup from 'reactjs-popup';
 
 export default function MyPlants() {
+
+  let navigate = useNavigate();
 
   let redirect = null;
   let userReady = false;
@@ -76,8 +79,11 @@ export default function MyPlants() {
                   <td>{plant.plantType}</td>
                   <td>
                     <Link className='btn btn-outline-success mx-2' to={`/my-plant/${plant.id}`}>View</Link>
-                    <button className='btn btn-outline-primary mx-2'>Water</button>
                     <button className='btn btn-outline-danger mx-2' onClick={() => deletePlant(plant.id)}>Remove</button>
+                    <Popup trigger={<button className='btn btn-outline-info mx-2'>Water</button>}>
+                      <div className='bg-info rounded p-2 border border-dark'>Yum!</div>
+                    </Popup>
+                    
                   </td>
                 </tr>
               ))
@@ -85,7 +91,14 @@ export default function MyPlants() {
           </tbody>
         </table>
         <div>
-          <Fab icon="+" text='Add Plant'><Link to={'/add-plants'}></Link></Fab>
+          <Fab icon="⚜">
+            {/* <Link to={'/add-plants'}></Link> */}
+            <Action text='Add Plant from Store'
+            onClick={(e) => navigate('/add-plants')}>＋
+            </Action>
+            <Action text='Create New Plant'>＋
+            </Action>
+          </Fab>
         </div>
       </div>
     </div>
