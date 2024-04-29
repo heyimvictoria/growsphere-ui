@@ -44,7 +44,11 @@ export default function ForumHome() {
   return (
     <div className='container'>
         <div className='py-4'>
-            <h3>Forum</h3>
+            <div className='mb-3'>
+                <h3>Forum</h3>
+                <Link className='btn btn-success' to={'/forum/topic/new'}>New Topic</Link>
+
+            </div>
             <table className='table border shadow'>
                 <thead>
                     <tr>

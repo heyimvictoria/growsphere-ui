@@ -14,6 +14,7 @@ import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
 import ForumHome from "./components/forum/ForumHome";
 import ViewTopic from "./components/forum/ViewTopic";
+import NewTopic from "./components/forum/NewTopic";
 
 class App extends Component {
     constructor(props) {
@@ -65,6 +66,9 @@ class App extends Component {
                             <li className="nav-item">
                                 <NavLink to="/home" className="nav-link">Home</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink to="/forum" className="nav-link">Forum</NavLink>
+                            </li>
                             {showModeratorBoard && (
                                 <li className="nav-item">
                                     <NavLink to="/mod" className="nav-link">Moderator Board</NavLink>
@@ -113,6 +117,7 @@ class App extends Component {
                         <Route path="/mod" element={<BoardModerator />} />
                         <Route path="/admin" element={<BoardAdmin />} />
                         <Route path="/forum" element={<ForumHome />} />
+                        <Route path="/forum/topic/new" element={<NewTopic />} />
                         <Route exact path='/forum/topic/:id' element={<ViewTopic />} />
                     </Routes>
                 </div>
