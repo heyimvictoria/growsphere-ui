@@ -59,8 +59,8 @@ export default function MyPlants() {
 
   return (
     <div className='container'>
-      <div className='py-4'>
-        <h3>Garden</h3>
+      <div>
+        <h3>My Garden</h3>
         <table className='table border shadow'>
           <thead>
             <tr>
