@@ -102,6 +102,11 @@ class App extends Component {
                                     <NavLink to="/gallery" className="nav-link">Image Gallery</NavLink>
                                 </li>
                             )}
+                            {currentUser && (
+                                <li className="nav-item">
+                                    <NavLink to="/points" className="nav-link">Rewards</NavLink>
+                                </li>
+                            )}
                         </ul>
                         {currentUser ? (
                             <ul className="navbar-nav ml-auto">
@@ -137,6 +142,7 @@ class App extends Component {
                         <Route path="/calendar" element={<Calendar/>}/>
                         <Route path="/weather" element={<WeatherComponent/>}/>
                         <Route path="/gallery" element={<ImageGallery/>}/>
+                        <Route path="/points" element={<GrowthPoints/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>
                          <Route path="/contact" element={<ContactForm />} />
