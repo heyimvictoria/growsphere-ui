@@ -17,8 +17,9 @@ import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import EventBus from "./common/EventBus";
 import AboutComponent from "./components/About";
-import Weather from "./components/Weather";
-import Calendar from "./components/Calendar";
+import WeatherComponent from "./components/Weather"; // Imported from the weather-api-frontend branch
+import Calendar from "./components/Calendar"; // Imported from the main branch
+
 
 class App extends Component {
     constructor(props) {
@@ -59,13 +60,9 @@ class App extends Component {
     render() {
         const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
         return (
-            <div className="site-container">
-                <nav className="navbar navbar-expand-md navbar-dark custom-navbar">
-                    <Link to="/" className="navbar-brand">
-                        <img src={logo} alt="GrowSphere Logo"
-                             style={{width: "45px", height: "45px", marginRight: "10px"}}/>
-                        GrowSphere
-                    </Link>
+            <div>
+                <nav className="navbar navbar-expand-lg navbar-dark custom-navbar">
+                    <Link to="/" className="navbar-brand">GrowSphere</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -100,11 +97,16 @@ class App extends Component {
                                     <NavLink to="/user" className="nav-link">User</NavLink>
                                 </li>
                             )}
+                            {currentUser && (
+                                <li className="nav-item">
+                                    <NavLink to="/gallery" className="nav-link">Image Gallery</NavLink>
+                                </li>
+                            )}
                         </ul>
                         {currentUser ? (
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <NavLink to="/profile" className="nav-link">{currentUser.username}</NavLink>
+                                <NavLink to="/profile" className="nav-link">{currentUser.username}</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <a href="/login" className="nav-link" onClick={this.logOut}>Log Out</a>
@@ -120,74 +122,31 @@ class App extends Component {
                                 </li>
                                 <li className="nav-item">
                                     <NavLink to="/contact" className="nav-link">Contact Us</NavLink>
-                                </li>
+                                     </li>
+
                             </ul>
                         )}
                     </div>
                 </nav>
-                <main className="container mt-3">
+                <div className="container mt-3">
+
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/home" element={<Home/>}/>
                         <Route path="/about" element={<AboutComponent/>}/>
-                        <Route path="/points" element={<GrowthPoints/>}/>
+                        <Route path="/calendar" element={<Calendar/>}/>
+                        <Route path="/weather" element={<WeatherComponent/>}/>
                         <Route path="/gallery" element={<ImageGallery/>}/>
                         <Route path="/login" element={<Login/>}/>
-                        <Route path="/weather" element={<Weather/>}/>
-                        <Route path="/calendar" element={<Calendar/>}/>
                         <Route path="/register" element={<Register/>}/>
-                        <Route path="/contact" element={<ContactForm/>}/>
+                         <Route path="/contact" element={<ContactForm />} />
                         <Route path="/profile" element={<Profile/>}/>
                         <Route path="/user" element={<BoardUser/>}/>
                         <Route path="/mod" element={<BoardModerator/>}/>
                         <Route path="/admin" element={<BoardAdmin/>}/>
                     </Routes>
-                </main>
-                <footer className="footer-48201">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-4 pr-md-5">
-                                <a href="#" className="footer-site-logo d-block mb-4">
-                                    <img src={logo} alt="GrowSphere Logo"
-                                         style={{width: "45px", height: "45px", marginRight: "5px"}}/>GrowSphere</a>
-                                <p>St. Louis, Missouri</p>
-                            </div>
-                            <div className="col-md">
-                                <ul className="list-unstyled nav-links">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </div>
-                            <div className="col-md">
-                                <ul className="list-unstyled nav-links">
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Garden Gallery</a></li>
-                                    <li><a href="#">Weather</a></li>
-                                    <li><a href="#">News</a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                </ul>
-                            </div>
-                            <div className="col-md">
-                                <ul className="list-unstyled nav-links">
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="row ">
-                            <div className="col-12 text-center">
-                                <div className="copyright mt-5 pt-5">
-                                    <p>
-                                        <small>© 2024 GrowSphere. All Rights Reserved.</small><br/>
-                                        <small>Final Project for Launchcode's 2024 Liftoff Program.</small><br/>
-                                        <small>Created by: <a href="https://github.com/travaughn33">Travaughn Watson</a>, <a href="https://github.com/ZimDman">Ryan Winkler</a>, <a href="https://github.com/stephenmdevine">Stephen Devine</a>, <a href="https://github.com/SamGoessling">Sam Goessling</a></small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                </div>
+
             </div>
         );
     }
