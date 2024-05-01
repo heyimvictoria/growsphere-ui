@@ -3,7 +3,6 @@ import { Routes, Route, Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import logo from "./assets/growspherelogo.svg";
 
 import AuthService from "./services/AuthService";
 import Login from "./components/Login";
@@ -100,16 +99,6 @@ class App extends Component {
                                 <li className="nav-item">
                                     <NavLink to="/user" className="nav-link">User</NavLink>
                                 </li>
-
-                            )}
-                            { currentUser && (
-                                <li className= "nav-item">
-                                    <NavLink to="/points" className="nav-link">Growth Points</NavLink>
-                                    </li>
-                            )} { currentUser && (
-                                <li className= "nav-item">
-                                    <NavLink to="/gallery" className="nav-link">Image Gallery</NavLink>
-                                    </li>
                             )}
                         </ul>
                         {currentUser ? (
