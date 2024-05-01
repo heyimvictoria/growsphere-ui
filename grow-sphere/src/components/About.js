@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 
 const AboutComponent = () => {
     return (
-        <div className="container mt-5">
+        <div className="container">
             <Card className="shadow">
                 <Card.Body>
                     <Card.Title className="text-center mb-4"><h2>Welcome to GrowSphere!</h2></Card.Title>
