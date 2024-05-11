@@ -14,10 +14,14 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
+import MyPlants from "./components/MyPlants";
+import ViewPlant from "./components/ViewPlant";
 import EventBus from "./common/EventBus";
 import AboutComponent from "./components/About";
 import Weather from "./components/Weather";
 import Calendar from "./components/Calendar";
+import AddPlants from "./components/user/AddPlants";
+import ViewMyPlant from "./components/user/ViewMyPlant";
 
 class App extends Component {
     constructor(props) {
@@ -138,6 +142,10 @@ class App extends Component {
                         <Route path="/user" element={<BoardUser/>}/>
                         <Route path="/mod" element={<BoardModerator/>}/>
                         <Route path="/admin" element={<BoardAdmin/>}/>
+                        <Route path="/plants" element={<MyPlants />} />
+                        <Route path="/add-plants" element={<AddPlants />} />
+                        <Route exact path='/my-plant/:id' element={<ViewMyPlant />} />
+                        <Route exact path='/plant/:id' element={<ViewPlant />} />
                     </Routes>
                 </main>
                 <footer className="footer-48201">
