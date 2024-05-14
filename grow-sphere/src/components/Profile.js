@@ -14,8 +14,11 @@ export default class Profile extends Component {
 
     componentDidMount() {
         const currentUser = AuthService.getCurrentUser();
-        if (!currentUser) this.setState({ redirect: "/home" });
-        this.setState({ currentUser: currentUser, userReady: true });
+        if (!currentUser) {
+            this.setState({ redirect: "/home" });
+        } else {
+            this.setState({ currentUser: currentUser, userReady: true });
+        }
     }
 
     render() {
@@ -33,7 +36,8 @@ export default class Profile extends Component {
                             <h3><strong>{currentUser.username}</strong>'s Profile</h3>
                         </div>
                         <div className="card-body">
-                            <p><strong>Token:</strong> {currentUser.accessToken.substring(0, 20)}...{currentUser.accessToken.substr(currentUser.accessToken.length - 20)}</p>
+                            {/*<p><strong>Token:</strong> {currentUser.accessToken.substring(0, 20)}...{currentUser.accessToken.substr(currentUser.accessToken.length - 20)}</p>*/}
+                            <p><strong>Token:</strong> {currentUser["accessToken"]}</p>
                             <p><strong>Id:</strong> {currentUser.id}</p>
                             <p><strong>Email:</strong> {currentUser.email}</p>
                             <div>

@@ -5,6 +5,7 @@ import "./App.scss";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import logo from "./assets/growspherelogo.svg";
 
+
 import AuthService from "./services/AuthService";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -18,6 +19,7 @@ import EventBus from "./common/EventBus";
 import AboutComponent from "./components/About";
 import Weather from "./components/Weather";
 import Calendar from "./components/Calendar";
+import PhotoUpload from "./components/PhotoUpload"
 
 class App extends Component {
     constructor(props) {
@@ -97,7 +99,7 @@ class App extends Component {
                             {currentUser && (
                                 <>
                                     <li className="nav-item">
-                                        <NavLink to="/user" className="nav-link">User</NavLink>
+                                        <NavLink to="/photoupload" className="nav-link">Photo Upload</NavLink>
                                     </li>
                                 </>
                             )}
@@ -139,6 +141,8 @@ class App extends Component {
                     <Route path="/user" element={<BoardUser/>}/>
                     <Route path="/mod" element={<BoardModerator/>}/>
                     <Route path="/admin" element={<BoardAdmin/>}/>
+                    <Route path="/photoupload" element={<PhotoUpload/>}/>
+
                 </Routes>
                 <footer className="footer-48201">
                     <div className="container">
